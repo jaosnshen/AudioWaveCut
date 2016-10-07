@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <com.example.chenhangye.audiowavecut.View.RecordView
+        android:id="@+id/widget_audio_recordView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+
+    <com.example.chenhangye.audiowavecut.View.AudioCutLineView
+        android:layout_marginLeft="10dp"
+        android:id="@+id/widget_audio_recordView_left"
+        android:layout_width="10dp"
+        android:layout_height="200dp"/>
+
+    <com.example.chenhangye.audiowavecut.View.AudioCutLineView
+        android:layout_marginLeft="60dp"
+        android:id="@+id/widget_audio_recordView_right"
+        android:layout_width="10dp"
+        android:layout_height="200dp"/>
+</RelativeLayout>

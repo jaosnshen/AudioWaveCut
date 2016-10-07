@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="default_txt_black">#2b2b2b</color>
+    <color name="default_green_color">#0bb908</color>
+    <color name="default_white_color">#ffffffff</color>
+    <color name="crowdfund_info_grey_color">#BCBCBC</color>
+    <color name="default_txt_black_second">#909090</color>
+    <color name="cover_color_grenn_aph">#edf9e9</color>
+</resources>

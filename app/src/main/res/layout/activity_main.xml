@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.chenhangye.audiowavecut.activity.MainActivity">
+    <com.example.chenhangye.audiowavecut.View.WaveSurfaceView
+        android:layout_marginTop="6dp"
+        android:id="@+id/act_animalePlayWave_sf"
+        android:background="@color/default_white_color"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"/>
+    <RelativeLayout
+        android:id="@+id/act_layout_showControl"
+        android:layout_below="@+id/act_animalePlayWave_sf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/act_animaleRecorde_cancel"
+            android:visibility="gone"
+            android:textColor="@color/default_green_color"
+            android:paddingLeft="18dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:text="@string/audio_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:visibility="gone"
+            android:scaleType="fitXY"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/audio_animalerecorde_icon_play_grey"
+            android:id="@+id/act_animaleRecorde_icon_play"
+            android:layout_marginLeft="18dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+        <TextView
+            android:visibility="gone"
+            android:layout_marginTop="12dp"
+            android:id="@+id/act_animateRecorderTime_txt"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="00:00.00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/act_animaleRecorde_cut"
+            android:textColor="@color/default_green_color"
+            android:paddingRight="18dp"
+            android:text="@string/audio_cut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+        <ImageView
+            android:visibility="gone"
+            android:scaleType="fitXY"
+            android:src="@drawable/selector_audio_cut__icon"
+            android:id="@+id/act_animaleRecorde_icon_cut"
+            android:textColor="@color/default_green_color"
+            android:layout_marginRight="18dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <View
+        android:layout_above="@+id/act_layout_choose_music"
+        style="@style/divider_1dp"/>
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/act_layout_choose_music"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <RelativeLayout
+            android:layout_toLeftOf="@+id/act_animalerecorde_back_img"
+            android:id="@+id/act_layout_choose_music_inside"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/act_musicplay_icon"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/audio_animalerecorde_backgroundmusic_icon_up"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_alignParentStart="true" />
+            <TextView
+                android:id="@+id/act_musicplay_name"
+                android:layout_toRightOf="@+id/act_musicplay_icon"
+                android:paddingLeft="20dp"
+                android:gravity="center_vertical"
+                android:text="@string/audio_add_bgm"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
+        <ImageView
+            android:layout_marginRight="20dp"
+            android:src="@drawable/audio_animalerecorde_backgrondmusic_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/act_animalerecorde_back_img" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/act_layout_chontrol_label"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:textColor="@color/default_txt_black_second"
+            android:visibility="gone"
+            android:text="@string/audio_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="35dp"
+            android:id="@+id/act_backgroundmusic_delete"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/act_playstate_img" />
+        <ImageView
+            android:layout_centerInParent="true"
+            android:src="@drawable/audio_animalerecorde_init"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/act_playstate_img" />
+        <TextView
+            android:visibility="gone"
+            android:text="@string/audio_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/act_playstate_img"
+            android:layout_marginStart="48dp"
+            android:id="@+id/act_backgroundmusic_save" />
+    </RelativeLayout>
+</RelativeLayout>

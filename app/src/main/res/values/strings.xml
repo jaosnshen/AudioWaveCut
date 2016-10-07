@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AudioWaveCut</string>
+    <string name="audio_cancel">取消</string>
+    <string name="audio_save">保存</string>
+    <string name="audio_cut">剪切</string>
+    <string name="audio_add_bgm">添加配乐</string>
+    <string name="audio_delete">删除</string>
+    <string name="launch_audio_live_delete_dialog_content">确定删除录音?</string>
+    <string name="launch_audio_live_delete_dialog_pos">删除</string>
+    <string name="launch_audio_live_delete_dialog_neg">取消</string>
+</resources>
