@@ -101,7 +101,8 @@ public class AnimalCutAudioActivity extends BaseActivity implements getIPosition
     @Override
     public void getRight(double right) {
         mTimeRight=right*time;
-        Log.e("right",mTimeRight+" ");
+        Log.e("右边的距离",right*1.0*mViewCombination.getWidth()*1.0+" ");
+        mViewCombination.getLeftView().setPaddingLeft(right*1.0*mViewCombination.getWidth()*1.0);
         txtTime.setText(String.format("%02d:%02d-%02d:%02d",(int)mTimeLeft/60,(int)mTimeLeft%60,
                 (int)mTimeRight/60,(int)mTimeRight%60));
     }
@@ -109,13 +110,9 @@ public class AnimalCutAudioActivity extends BaseActivity implements getIPosition
     @Override
     public void getLeft(double left) {
         mTimeLeft=left*time;
-        Log.e("left",mTimeLeft+" ");
-
-        mPlayer.setOffSet((int) mTimeLeft);
-        if (mPlayer.getState()== PlayerState.Playing){
-            mPlayer.stop();
-        }
-        mPlayer.play(mFilePath);
+        Log.e("左边边的距离",left*1.0*mViewCombination.getWidth()*1.0+" ");
+        mViewCombination.getRightView().setPaddingLeft(left*1.0*mViewCombination.getWidth()*1.0);
+        playResume();
         txtTime.setText(String.format("%02d:%02d-%02d:%02d",(int)mTimeLeft/60,(int)mTimeLeft%60,
                 (int)mTimeRight/60,(int)mTimeRight%60));
     }
@@ -134,10 +131,7 @@ public class AnimalCutAudioActivity extends BaseActivity implements getIPosition
                     @Override
                     public void cutFinish(String path) {
                         getCutArray(mViewCombination.getLeftTime(), mViewCombination.getRightTime());
-                        if (mPlayer.getState()==PlayerState.Playing){
-                            mPlayer.stop();
-                            mPlayer.release();
-                        }
+                        playStop();
                         Intent intent=new Intent();
                         Bundle bundle=new Bundle();
                         bundle.putString(FILEPATH,path);
@@ -159,6 +153,20 @@ public class AnimalCutAudioActivity extends BaseActivity implements getIPosition
 
     }
 
+
+    private void playResume(){
+        if (mPlayer.getState()== PlayerState.Playing){
+            mPlayer.stop();
+        }
+        mPlayer.setOffSet((int) mTimeLeft);
+        mPlayer.play(mFilePath);
+    }
+    private void playStop(){
+        if (mPlayer.getState()==PlayerState.Playing){
+            mPlayer.stop();
+            mPlayer.release();
+        }
+    }
     private void getCutArray(float left,float right){
         LinkedList<Double> list=mValumws;
         int lenght=list.size();
@@ -179,10 +187,7 @@ public class AnimalCutAudioActivity extends BaseActivity implements getIPosition
     }
 
     private void myBackPress() {
-        if (mPlayer.getState()==PlayerState.Playing){
-            mPlayer.stop();
-            mPlayer.release();
-        }
+        playStop();
         Intent intent=new Intent();
         Bundle bundle=new Bundle();
         bundle.putString(FILEPATH,mFilePath);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -26,7 +27,13 @@ public class AudioViewCombination extends RelativeLayout {
     private RecordView recordView;
     private View mRoot;
 
+    public AudioCutLineView getRightView() {
+        return rightView;
+    }
 
+    public AudioCutLineView getLeftView() {
+        return leftView;
+    }
 
     public void setGetIPosition(getIPosition getIPosition) {
        recordView.setGetIPosition(getIPosition);
@@ -71,9 +78,8 @@ public class AudioViewCombination extends RelativeLayout {
     @Override
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         super.onWindowFocusChanged(hasWindowFocus);
-       RelativeLayout.LayoutParams lp=new RelativeLayout.LayoutParams(rightView.getLayoutParams());
-        lp.setMargins(getWidth()-20,0,0,0);
-        Log.e("宽度",getWidth()+" ");
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(rightView.getLayoutParams());
+        lp.setMargins(getWidth() - 30, 0, 0, 0);
         rightView.setLayoutParams(lp);
     }
 }

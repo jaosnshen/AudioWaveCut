@@ -192,14 +192,12 @@ public class RecordView extends View implements setIPosition {
     public void setRightPosition(int postion, ProgressEnum.Type type) {
         if (type.equals(ProgressEnum.Type.Left)){
             mGetIPosition.getLeft(postion*1.0/width*1.0);
-
             cutLeft=postion;
         }else if (type.equals(ProgressEnum.Type.Right)){
             double result=postion*1.0/width/1.0;
             Log.e("结果",result+" ");
             mGetIPosition.getRight(result);
             cutRight=postion;
-
         }
         postInvalidate();
     }
